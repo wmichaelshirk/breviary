@@ -1,0 +1,71 @@
+body {
+  font-family: "EB Garamond", "FreeSerif", Serif;
+  max-width: 400px;
+  padding: 10px;
+  margin: auto;
+  font-size: 16pt;
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.2;
+  background-color: floralWhite;
+}
+p {
+  margin: 0;
+  text-indent: 1em;
+}
+.drop {
+  text-indent: 0;
+}
+.stanza {
+  margin-bottom: 1em;
+}
+.stanza p {
+  text-indent: -1em;
+  padding-left: 1em;
+}
+section .stanza:first-of-type p:first-of-type {
+  text-indent: 0;
+  padding-left: 0;
+}
+.rubric {
+  font-style: italic;
+  text-indent: 0;
+  color: red;
+  font-size: .75em;
+}
+.rubric i {
+  font-style: normal;
+}
+.rubric::before {
+   content: "¶ ";
+   font-style: normal;
+ }
+ h1 .title {
+   display: block;
+ }
+ h1 .subtitle {
+   font-weight: normal;
+   font-size: 1em;
+ }
+ h2 {
+   font-weight: normal;
+   text-align: center;
+   font-size: 1em;
+   font-variant: small-caps;
+ }
+ h3 {
+   font-weight: normal;
+   text-align: center;
+   font-size: 1em;
+   margin-bottom: .1em;
+ }
+ h3 .title {
+   font-size: 1em;
+   font-variant: small-caps;
+ }
+ .subtitle {
+   font-style: italic;
+ }
+ .lord {
+   font-variant: small-caps;
+ }

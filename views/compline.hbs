@@ -1,0 +1,119 @@
+<h1>
+  <span class="title">An Order for Compline</span>
+  <span class="subtitle">Daily through the Year.</span>
+</h1>
+
+<p>✠ In the Name <i>&c.</i> Our Father <i>&c.</i> Hail, Mary <i>&c.</i></p>
+
+<p>{{sacerdotalVerse}}</p>
+<p class="drop">{{{drop deusInAdjutorium}}}</p>
+{{#unless septuagesima}}
+<p>Alleluya.</p>
+{{else}}
+<p>{{lausTibiDomine}}</p>
+{{/unless}}
+
+<h2>The Psalms</h2>
+<p class="rubric">Then shall follow one or more of <i>Psalms 4, 91,</i> and <i>134.</i></p>
+
+{{#each psalms}}
+{{psalm}}
+  <section>
+    <h3>
+      <span class="title">Psalm {{hebrewNumber}}. </span>
+      <span class="subtitle">{{incipit}}</span>
+    </h3>
+    {{#each verses}}
+      {{#if @first}}
+        <p class="drop">{{{drop this}}}</p>
+      {{else}}
+        <p>{{{this}}}</p>
+      {{/if}}
+    {{/each}}
+  </section>
+{{/each}}
+
+<h3>
+  <span class="title">Chapter. </span>
+  <span class="subtitle">{{chapter.citation}}</span>
+</h3>
+<p class="drop">{{{drop chapter.text}}} {{chapterResponse}}</p>
+
+
+<section>
+  <h3>
+    <span class="title">Hymn.</span>
+    <span class="subtitle">{{hymn.incipit}}</span>
+  </h3>
+  {{#each hymn.stanzas}}
+    <div class="stanza">
+      {{#each this}}
+        {{#if @../first}}
+          {{#if @first}}
+            <p>{{{drop this}}}</p>
+          {{else}}
+            <p>{{this}}</p>
+          {{/if}}
+        {{else}}
+          <p>{{this}}</p>
+        {{/if}}
+      {{/each}}
+    </div>
+  {{/each}}
+</section>
+
+<h2>The Song of St. Symeon</h2>
+<section>
+  <h3>
+    <span class="title">{{canticle.incipit}}</span>
+    <span class="subtitle">{{canticle.citation}}</span>
+  </h3>
+  {{#each canticle.verses}}
+    {{#if @first}}
+      <p class="drop">{{{drop this}}}</p>
+    {{else}}
+      <p>{{{this}}}</p>
+    {{/if}}
+  {{/each}}
+</section>
+
+<h2>The Preces</h2>
+<p>{{kyries}}</p>
+<p class="drop">{{{drop paterNoster}}}</p>
+
+{{#each preces}}
+<p>{{this}}</p>
+{{/each}}
+<p class="rubric">Then shall the Minister and people say together the Confession following; and afterwards the Prayer for Forgiveness.</p>
+<p class="drop"><span class="dropcap">I </span> CONFESS to God, to blessed Mary, all the Saints, [and to
+  you,] that I have sinned exceedingly in thought, word and deed, through my
+  own grievous fault.  I beseech Holy Mary, all the Saints of God, [and you] to
+  pray for me.</p>
+<p class="drop">
+  <span class="dropcap">A</span>LMIGHTY God, have mercy upon us, forgive us all our sins, deliver us from all
+  evil, confirm and strengthen us in all goodness, and bring us to life
+  everlasting. {{amen}}</p>
+
+<p class="rubric">If a Priest be present, he shall stand and pronounce the following Absolution</p>
+<p class="drop">May the Almighty and merciful Lord grant unto you pardon ✠
+  and remission of all your sins, time for true repentance, amendment of life,
+  and the grace and comfort of the Holy Spirit. {{amen}}</p>
+
+<p class="rubric">Then shall be said:</p>
+{{#each preces2}}
+<p>{{this}}</p>
+{{/each}}
+<p>[{{dominusVobiscum}}]</p>
+<p class="rubric">One not in at least Deacon’s orders shall omit <i>The Lord be with you, &c</i>.</p>
+<p>Let us pray.</p>
+<p class="drop"><span class="dropcap">L</span>ORD Jesus Christ, son of the living God, who at this evening
+  hour didst rest in the sepulchre, and didst thereby sanctify the grave to be a
+  bed of hope to thy people; Make us so to abound in sorrow for our sins, which
+  were the cause of thy passion, that when our bodies lie in the dust, our souls
+  may live with thee; who livest and reignest with the Father and the Holy
+  Ghost, one God world without end. {{amen}}</p>
+
+<p>{{domineExaudi}}</p>
+<p>{{benedicamusDomino}}</p>
+<p class="drop">The Almighty and merciful Lord, the Father, ✠ the Son, and
+  the Holy Ghost; bless and preserve us. {{amen}}</p>
