@@ -69,3 +69,12 @@ section .stanza:first-of-type p:first-of-type {
  .lord {
    font-variant: small-caps;
  }
+ .verse {
+   white-space: pre-wrap;
+ }
+ .verse span:nth-child(odd)::before {
+   content: "℣. ";
+ }
+ .verse span:nth-child(even)::before {
+   content: "℟. ";
+ }

@@ -18,10 +18,36 @@
       ]
     }
   ],
-  "benedicamusDomino": "℣. Let us bless the Lórd.  ℟. Thanks be to Gód.",
-  "converteNos": "℣. Turn us, ✠ O God our Saviour.  ℟. And let thine anger cease from us.",
-  "custodiNos": "℣. Keep us, O Lord.  ℟. As the apple of an eye : hide us under the shadow of thy wings.",
-  "domineExaudi": "℣. Lord, hear my práyer.  ℟. And let my cry come unto thée.",
-  "dominusVobiscum": "℣. The Lord be with yóu.  ℟. And with thy spírit.",
-  "lausTibiDomine": "℣. Praise ye the Lord.  ℟. The Lord’s Name be praised."
+  "verses": [
+    {
+      "incipit": "benedicamusDomino",
+      "V": "Let us bless the Lórd.",
+      "R": "Thanks be to Gód."
+    },
+    {
+      "incipit": "converteNos",
+      "V": "Turn us, ✠ O God our Saviour.",
+      "R": "And let thine anger cease from us."
+    },
+    {
+      "incipit": "custodiNos",
+      "V": "Keep us, O Lord.",
+      "R": "As the apple of an eye : hide us under the shadow of thy wings."
+    },
+    {
+      "incipit": "domineExaudi",
+      "V": "Lord, hear my práyer.",
+      "R": "And let my cry come unto thée."
+    },
+    {
+      "incipit": "dominusVobiscum",
+      "V": "The Lord be with yóu.",
+      "R": "And with thy spírit."
+    },
+    {
+      "incipit": "lausTibiDomine",
+      "V": "Praise ye the Lord.",
+      "R": "The Lord’s Name be praised."
+    }
+  ]
 }

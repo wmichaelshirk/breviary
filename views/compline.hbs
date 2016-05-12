@@ -5,7 +5,7 @@
 
 <p>✠ In the Name <i>&c.</i> Our Father <i>&c.</i> Hail, Mary <i>&c.</i></p>
 
-<p>{{sacerdotalVerse}}</p>
+{{> verse sacerdotalVerse}}
 <p class="drop">{{{drop deusInAdjutorium}}}</p>
 {{#unless septuagesima}}
 <p>Alleluya.</p>
@@ -17,50 +17,13 @@
 <p class="rubric">Then shall follow one or more of <i>Psalms 4, 91,</i> and <i>134.</i></p>
 
 {{#each psalms}}
-{{psalm}}
-  <section>
-    <h3>
-      <span class="title">Psalm {{hebrewNumber}}. </span>
-      <span class="subtitle">{{incipit}}</span>
-    </h3>
-    {{#each verses}}
-      {{#if @first}}
-        <p class="drop">{{{drop this}}}</p>
-      {{else}}
-        <p>{{{this}}}</p>
-      {{/if}}
-    {{/each}}
-  </section>
+    {{> psalm this}}
 {{/each}}
 
-<h3>
-  <span class="title">Chapter. </span>
-  <span class="subtitle">{{chapter.citation}}</span>
-</h3>
-<p class="drop">{{{drop chapter.text}}} {{chapterResponse}}</p>
+{{> chapter chapter}}
 
-
-<section>
-  <h3>
-    <span class="title">Hymn.</span>
-    <span class="subtitle">{{hymn.incipit}}</span>
-  </h3>
-  {{#each hymn.stanzas}}
-    <div class="stanza">
-      {{#each this}}
-        {{#if @../first}}
-          {{#if @first}}
-            <p>{{{drop this}}}</p>
-          {{else}}
-            <p>{{this}}</p>
-          {{/if}}
-        {{else}}
-          <p>{{this}}</p>
-        {{/if}}
-      {{/each}}
-    </div>
-  {{/each}}
-</section>
+{{> hymn hymn}}
+{{> verse hymnVerse}}
 
 <h2>The Song of St. Symeon</h2>
 <section>
@@ -103,7 +66,8 @@
 {{#each preces2}}
 <p>{{this}}</p>
 {{/each}}
-<p>[{{dominusVobiscum}}]</p>
+[{{> verse dominusVobiscum}}]
+
 <p class="rubric">One not in at least Deacon’s orders shall omit <i>The Lord be with you, &c</i>.</p>
 <p>Let us pray.</p>
 <p class="drop"><span class="dropcap">L</span>ORD Jesus Christ, son of the living God, who at this evening
@@ -113,7 +77,7 @@
   may live with thee; who livest and reignest with the Father and the Holy
   Ghost, one God world without end. {{amen}}</p>
 
-<p>{{domineExaudi}}</p>
-<p>{{benedicamusDomino}}</p>
+{{> verse domineExaudi}}
+{{> verse benedicamusDomino}}
 <p class="drop">The Almighty and merciful Lord, the Father, ✠ the Son, and
   the Holy Ghost; bless and preserve us. {{amen}}</p>
