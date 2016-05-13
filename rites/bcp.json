@@ -1,0 +1,28 @@
+{
+  "date": [
+    {
+      "day": 12,
+      "matins": [
+        "psalm@62",
+        "psalm@63",
+        "psalm@64"
+      ],
+      "evensong": [
+        "psalm@65",
+        "psalm@66",
+        "psalm@67"
+      ]
+    },
+    {
+      "day": 13,
+      "matins": [
+        "psalm@68"
+      ],
+      "evensong": [
+        "psalm@69",
+        "psalm@70"
+      ]
+    }
+  ],
+  "dates": []
+}

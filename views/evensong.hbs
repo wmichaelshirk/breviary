@@ -1,0 +1,16 @@
+<h1>
+  <span class="title">An Order for Evensong</span>
+  <span class="subtitle">Daily through the Year.</span>
+</h1>
+
+{{> inNomine}}
+{{> deusInAdjutorium}}
+
+{{#each psalms}}
+    {{> psalm this}}
+{{/each}}
+
+{{> preces preces}}
+
+{{> verse dominusVobiscum}}
+{{> verse benedicamusDomino}}

@@ -13,10 +13,24 @@ app.use(handlebars({
   helpers: {
     'drop':  function(text) {
       textList = text.split(" ");
+      if (textList[0].length == 1) {
+        textList[1] = '&ensp;' + textList[1].toUpperCase();
+      }
       return `<span class="dropcap">${textList[0][0]}</span>${textList[0].substring(1).toUpperCase()} ${textList.slice(1).join(" ")}`;
+    },
+    'inc': function(value) {
+      return parseInt(value) +1;
     }
   },
   partials: {
+    'inNomine': `<p>✠ In the Name <i>&c.</i> Our Father <i>&c.</i> Hail, Mary <i>&c.</i></p>`,
+    'deusInAdjutorium': `<p class="drop">{{{drop deusInAdjutorium}}}</p>
+    {{#unless septuagesima}}
+    <p>Alleluya.</p>
+    {{else}}
+    <p>{{lausTibiDomine}}</p>
+    {{/unless}}
+    `,
     'verse': `<p class="verse"><span>{{V}}</span>  <span>{{R}}</span></p>`,
     'psalm': `<section>
                 <h3>
@@ -27,7 +41,7 @@ app.use(handlebars({
                   {{#if @first}}
                     <p class="drop">{{{drop this}}}</p>
                   {{else}}
-                    <p>{{{this}}}</p>
+                    <p>{{inc @index}}. {{{this}}}</p>
                   {{/if}}
                 {{/each}}
               </section>`,
@@ -56,7 +70,17 @@ app.use(handlebars({
                   {{/each}}
                 </div>
               {{/each}}
-            </section>`
+            </section>`,
+      'dropcap': `<p class="drop">{{{drop this}}}</p>`,
+      'preces': `
+        <h3>
+          <span class="title">The Preces</span>
+        </h3>
+        <p>{{kyries}}</p>
+        {{>dropcap paterNoster}}
+        {{#each verses}}
+          {{> verse this}}
+        {{/each}}`
   }
 }))
 
@@ -68,6 +92,10 @@ app.use(route.get('/', function* () {
     title: 'test page',
     name: 'world'
   })
+}))
+
+app.use(route.get('/evensong', function *(){
+  yield this.render('evensong', bcp.evensong());
 }))
 
 app.use(route.get('/compline', function *(){
