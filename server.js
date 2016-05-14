@@ -31,6 +31,7 @@ app.use(handlebars({
     <p>{{lausTibiDomine}}</p>
     {{/unless}}
     `,
+    'amen': `<span class="response">Amen.</span>`,
     'verse': `<p class="verse"><span>{{V}}</span>  <span>{{R}}</span></p>`,
     'psalm': `<section>
                 <h3>
@@ -39,9 +40,9 @@ app.use(handlebars({
                 </h3>
                 {{#each verses}}
                   {{#if @first}}
-                    <p class="drop">{{{drop this}}}</p>
+                    <p class="drop">{{{drop this.[0]}}} * {{{this.[1]}}}</p>
                   {{else}}
-                    <p>{{inc @index}}. {{{this}}}</p>
+                    <p>{{inc @index}}. {{{this.[0]}}} * {{{this.[1]}}}</p>
                   {{/if}}
                 {{/each}}
               </section>`,
@@ -51,6 +52,7 @@ app.use(handlebars({
                 </h3>
                 <p class="drop">{{{drop text}}}&emsp;{{response}}</p>`,
     'hymn': `<section>
+              {{#if this}}
               <h3>
                 <span class="title">Hymn.</span>
                 <span class="subtitle">{{incipit}}</span>
@@ -70,6 +72,9 @@ app.use(handlebars({
                   {{/each}}
                 </div>
               {{/each}}
+              {{else}}
+              <h3>No hymn provided.</h3>
+              {{/if}}
             </section>`,
       'dropcap': `<p class="drop">{{{drop this}}}</p>`,
       'preces': `
@@ -80,7 +85,17 @@ app.use(handlebars({
         {{>dropcap paterNoster}}
         {{#each verses}}
           {{> verse this}}
-        {{/each}}`
+        {{/each}}`,
+      'collect': `
+        {{#if this}}
+          {{#if title}}
+            <h4>{{title}}</h4>
+          {{/if}}
+          <p class="drop">{{{drop text}}} {{{doxology}}}&ensp;{{> amen}}</p>
+        {{else}}
+         No collect.
+        {{/if}}
+      `
   }
 }))
 

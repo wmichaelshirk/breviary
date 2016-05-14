@@ -63,6 +63,21 @@ section .stanza:first-of-type p:first-of-type {
    font-size: 1em;
    font-variant: small-caps;
  }
+ h4 {
+   font-style: italic;
+   font-weight: normal;
+   margin: 1em 0 0 0;
+   text-align: center;
+ }
+ h4::after {
+   content: '.';
+ }
+ h5 {
+   font-size: 1em;
+   font-weight: normal;
+   margin: 0;
+   text-align: center;
+ }
  .subtitle {
    font-style: italic;
  }
@@ -75,6 +90,7 @@ section .stanza:first-of-type p:first-of-type {
  .verse span:nth-child(odd)::before {
    content: "℣. ";
  }
- .verse span:nth-child(even)::before {
+ .verse span:nth-child(even)::before,
+ .response::before {
    content: "℟. ";
  }

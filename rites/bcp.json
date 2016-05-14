@@ -22,6 +22,17 @@
         "psalm@69",
         "psalm@70"
       ]
+    },
+    {
+      "day": 14,
+      "matins": [
+        "psalm@71",
+        "psalm@72"
+      ],
+      "evensong": [
+        "psalm@73",
+        "psalm@74"
+      ]
     }
   ],
   "dates": []

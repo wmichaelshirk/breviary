@@ -9,6 +9,7 @@ var verses = low('en/verses.json', { storage })
 var psalmDb = low('en/psalms.json', { storage })
 var canticles = low('en/canticles.json', { storage })
 var hymns = low('en/hymns.json', { storage })
+var collectDb = low('en/collects.json', { storage })
 
 let dominusVobiscum = verses('verses').find({incipit: 'dominusVobiscum'})
 let benedicamusDomino = verses('verses').find({incipit: 'benedicamusDomino'})
@@ -58,6 +59,9 @@ module.exports = {
           }
         ]
       },
+      collect: collectDb('collect').find({feast: "Sunday after Ascension"}),
+      forPeace: collectDb('collect').find({title: "The Collect for Peace"}),
+      forAid: collectDb('collect').find({title: "The Collect for Aid against all Perils"}),
       dominusVobiscum,
       benedicamusDomino
     }
@@ -71,11 +75,11 @@ module.exports = {
     return {
       sacerdotalVerse: verses('verses').find({incipit: 'converteNos'}),
       lausTibiDomine,
-      deusInAdjutorium: 'O &nbsp;God, ✠ make speed to save me.  ℟. O Lord, make haste to help me.  Glory be to the Father, and to the Son : and to the Holy Ghost.  As it was in the beginning, is now, and ever shall be : world without end.  Amen.',
+      deusInAdjutorium,
       psalms: [
         psalmDb('psalm').find({incipit: 'Cum invocarem'}),
-        psalmDb('psalm').find({hebrewNumber: 91}),
-        psalmDb('psalm').find({hebrewNumber: 134})
+        psalmDb('psalm').find({hebrewNumber: "91"}),
+        psalmDb('psalm').find({hebrewNumber: "134"})
       ].map(psalm => {
         return Object.assign({}, psalm, {verses: [...psalm.verses, ...gloriaPatri]})
       }),
@@ -90,8 +94,9 @@ module.exports = {
       paterNoster,
       preces: preces.verses,
       preces2: preces.verses2,
-      collect: 'Lighten our darkness, we beseech thee, O Lord, and by thy great mercy defend us from all perils and dangers of this night, for the love thy only Son, our Saviour Jesus Christ.',
-      amen: '℟. Amen.',
+      collect: Object.assign({},
+        collectDb('collect').find({title: "At Compline"}),
+        {title: null}),
       kyries: '℣. Kyrie eleyson.  ℟. Christe eleyson.  Kyrie eleyson.',
       domineExaudi,
       dominusVobiscum,
